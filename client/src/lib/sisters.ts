@@ -16,6 +16,8 @@ export type Sister = {
   image?: string;
   cvet?: { imya: string; hex: string };   // любимый цвет
   strana?: string;                         // любимая страна
+  harakter?: string[];
+  predpochitaet?: { zhivotnoe?: string; cvetok?: string; vremya?: string; napitok?: string };
   razdely: Razdel[];
 };
 

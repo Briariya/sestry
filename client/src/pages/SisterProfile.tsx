@@ -1,5 +1,5 @@
 /* Style: individual archive sheet — editorial profile, warm paper, oversized serif name, concise metadata and generous whitespace. */
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ArrowLeft, ArrowUpRight, Circle } from "lucide-react";
 import { sisters, ZHDET_RAZDEL } from "@/lib/sisters";
@@ -13,6 +13,17 @@ export default function SisterProfile() {
   if (!sister) return <NotFound />;
   const currentIndex = sisters.findIndex((item) => item.slug === sister.slug);
   const nextSister = sisters[(currentIndex + 1) % sisters.length];
+  // Несколько точек — только заполненные.
+  const p = sister.predpochitaet ?? {};
+  const fakty = ([
+    ["Любимый цвет", sister.cvet && <><i className="color-swatch" style={{ backgroundColor: sister.cvet.hex }} />{sister.cvet.imya}</>],
+    ["Любимая страна", sister.strana],
+    ["Характер", sister.harakter?.join(" · ")],
+    ["Любимое животное", p.zhivotnoe],
+    ["Любимый цветок", p.cvetok],
+    ["Любимое время года", p.vremya],
+    ["Любимый напиток", p.napitok],
+  ] as Array<[string, ReactNode]>).filter(([, z]) => z);
   const kSestram = () => {
     try { sessionStorage.setItem(ZHDET_RAZDEL, "preview"); } catch { /* без хранилища — просто на главную */ }
     setLocation("/");
@@ -42,11 +53,10 @@ export default function SisterProfile() {
             <div className="profile-content-main"><p className="profile-lead">Анкета пересобирается.</p></div>
           </section>
         )}
-        {(sister.cvet || sister.strana) && <section className="profile-facts">
+        {fakty.length > 0 && <section className="profile-facts">
           <div className="facts-heading"><p className="eyebrow">Поля дела</p><h2>Несколько<br /><em>точек.</em></h2></div>
           <div className="facts-list">
-            {sister.cvet && <div className="fact-row"><span>01</span><span className="fact-label">Любимый цвет</span><strong><i className="color-swatch" style={{ backgroundColor: sister.cvet.hex }} />{sister.cvet.imya}</strong></div>}
-            {sister.strana && <div className="fact-row"><span>{sister.cvet ? "02" : "01"}</span><span className="fact-label">Любимая страна</span><strong>{sister.strana}</strong></div>}
+            {fakty.map(([metka, znachenie], n) => <div className="fact-row" key={metka}><span>{String(n + 1).padStart(2, "0")}</span><span className="fact-label">{metka}</span><strong>{znachenie}</strong></div>)}
           </div>
         </section>}
         <section className="profile-next"><p className="eyebrow">Следующее дело</p><button onClick={() => setLocation(`/sisters/${nextSister.slug}`)}><span>{nextSister.id}</span><b>{nextSister.name}</b><ArrowUpRight size={24} /></button></section>

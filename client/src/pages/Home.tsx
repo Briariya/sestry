@@ -57,7 +57,7 @@ export default function Home() {
 
         <section className="preview-section" id="preview" aria-labelledby="preview-title">
           <div className="preview-heading"><div><p className="eyebrow">Быстрый просмотр</p><h2 id="preview-title">Кто сегодня<br /><em>рядом?</em></h2></div><p>Выбери Сестру,<br />чтобы открыть её дело.</p></div>
-          <div className="preview-grid">{sisters.map((sister) => <Link className="preview-card" href={`/sisters/${sister.slug}`} key={sister.slug} style={{ "--preview-color": sister.akcent } as CSSProperties}><div className="preview-image">{sister.image ? <img src={sister.image} alt={`Открыть профиль ${sister.name}`} /> : <span className="bez-portreta">{sister.name[0]}</span>}<span className="preview-arrow"><ArrowUpRight size={18} /></span></div><div className="preview-card-meta"><span>{sister.id}</span><span>личное дело</span></div><h3>{sister.name}<i>.</i></h3><p>{sister.razdely.find(r => r.metka === "Занятия")?.zagolovok ?? ""}</p></Link>)}</div>
+          <div className="preview-grid">{sisters.map((sister) => <Link className="preview-card" href={`/sisters/${sister.slug}`} key={sister.slug} style={{ "--preview-color": sister.akcent } as CSSProperties}><div className="preview-image">{sister.image ? <img src={sister.image} alt={`Открыть профиль ${sister.name}`} /> : <span className="bez-portreta">{sister.name[0]}</span>}<span className="preview-arrow"><ArrowUpRight size={18} /></span></div><div className="preview-card-meta"><span>{sister.id}</span><span>личное дело</span></div><h3>{sister.name}<i>.</i></h3><p>{sister.harakter?.join(" · ") ?? ""}</p></Link>)}</div>
         </section>
 
         <section className="manifesto-section" aria-labelledby="manifesto-title">
