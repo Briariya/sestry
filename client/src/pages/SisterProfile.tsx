@@ -39,7 +39,7 @@ export default function SisterProfile() {
         <section className="profile-hero">
           <div className="profile-hero-meta"><span>Личное дело / {sister.id}</span><span>Архив характеров</span></div>
           <div className="profile-hero-grid">
-            <div className="profile-title"><p className="eyebrow"><span className="eyebrow-line" /> Профиль персонажа</p><h1>{sister.name}<span className="profile-period">.</span></h1></div>
+            <div className="profile-title"><p className="eyebrow"><span className="eyebrow-line" /> Профиль персонажа</p><h1>{sister.name}<span className="profile-period">.</span></h1>{sister.status && <p className="profile-quote">“{sister.status}”</p>}</div>
             <div className="profile-portrait">{sister.image ? <img src={sister.image} alt={`Портрет ${sister.name}`} /> : <span className="bez-portreta">{sister.name[0]}</span>}<span className="portrait-stamp">{sister.id} / {sisters.length}</span></div>
           </div>
         </section>

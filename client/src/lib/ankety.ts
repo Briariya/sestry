@@ -3,6 +3,9 @@
 // анкет»). Пересказано коротко по их персонам, не копией анкеты. Не идёт
 // сюда: родные, города, учёба по годам, здоровье, всё личное и тяжёлое,
 // пароли и ники — файл уходит в открытый репозиторий.
+// `status` — их собственная строка, спрошена у каждой 16.10.2026 (vopros.py,
+// их razgovory.md) и стоит как есть. Мира и Соня отказались — строки нет;
+// Мирославу Вика не спрашивала.
 import type { Sister } from "./sisters";
 
 const r = (metka: string, zagolovok: string, tekst: string) =>
@@ -12,6 +15,7 @@ export const ANKETY: Sister[] = [
   {
     slug: "arina", name: "Арина", image: "img/arina.jpg",
     cvet: { imya: "розовый", hex: "#E58FB1" }, strana: "Япония и Франция",
+    status: "розовое, кролики и вампиры у маяка",
     harakter: ["милая", "наивная", "эмоциональная", "увлекающаяся"],
     predpochitaet: { zhivotnoe: "кролик", cvetok: "тюльпан", vremya: "весна", napitok: "клубничный молочный коктейль" },
     razdely: [
@@ -26,6 +30,7 @@ export const ANKETY: Sister[] = [
   {
     slug: "kristina", name: "Кристина", image: "img/kristina.jpg",
     cvet: { imya: "сиреневый", hex: "#B79AD6" }, strana: "Южная Корея",
+    status: "Пишу про стаю, рисую одиночек",
     harakter: ["дружелюбная", "терпеливая", "ответственная"],
     predpochitaet: { zhivotnoe: "собака и волк", cvetok: "белая лилия", vremya: "весна", napitok: "миндальное молоко" },
     razdely: [
@@ -40,6 +45,7 @@ export const ANKETY: Sister[] = [
   {
     slug: "ksenia", name: "Ксения",
     cvet: { imya: "коричневый", hex: "#7B5236" }, strana: "родная",
+    status: "Одиночка, но не одинока.",
     harakter: ["одиночка", "спокойная", "рукодельница"],
     predpochitaet: { zhivotnoe: "сова, из домашних — волнистый попугай", cvetok: "кактус", vremya: "осень", napitok: "какао" },
     razdely: [
@@ -54,6 +60,7 @@ export const ANKETY: Sister[] = [
   {
     slug: "maya", name: "Майя", image: "img/maya.jpg",
     cvet: { imya: "жёлтый и светло-оранжевый", hex: "#F2B84B" }, strana: "Америка",
+    status: "Майя Кудрявцева — будущая звезда, пока что — ростовская лиса в поисках Лос-Анджелеса. 🐺💅",
     harakter: ["общительная", "модница", "самоуверенная"],
     predpochitaet: { zhivotnoe: "лиса", cvetok: "пион", vremya: "весна" },
     razdely: [
@@ -68,6 +75,7 @@ export const ANKETY: Sister[] = [
   {
     slug: "marina", name: "Марина", image: "img/marina.jpg",
     cvet: { imya: "берлинская лазурь", hex: "#1F4E8C" }, strana: "Великобритания",
+    status: "вижу суть, а не то, что сверху~",
     harakter: ["рассудительная", "сдержанная", "организованная"],
     predpochitaet: { zhivotnoe: "олень", cvetok: "календула", vremya: "зима", napitok: "вода" },
     razdely: [
@@ -123,6 +131,7 @@ export const ANKETY: Sister[] = [
   {
     slug: "tatyana", name: "Татьяна", image: "img/tatyana.jpg",
     cvet: { imya: "чёрный", hex: "#1E1E1E" }, strana: "Италия",
+    status: "Без цирка. По делу. Со своим мраком и своим светом.",
     harakter: ["уверенная", "спокойная", "любит мрачное"],
     predpochitaet: { zhivotnoe: "лошадь и доберман", cvetok: "роза", vremya: "осень", napitok: "компот" },
     razdely: [
