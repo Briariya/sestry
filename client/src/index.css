@@ -58,3 +58,11 @@ h1,h2,h3,blockquote { font-family:'Fraunces',serif; font-weight:400; letter-spac
 /* Без портрета — первая буква имени на месте картинки. */
 .bez-portreta{display:grid;place-items:center;width:100%;height:100%;min-height:inherit;aspect-ratio:auto;background:var(--paper-deep);color:var(--muted);font:clamp(32px,5vw,72px)/1 'Fraunces',serif}
 .profile-portrait .bez-portreta{min-height:420px}
+
+/* Дело сестры (16.10.2026): длинное имя («Кристина.», «Мирослава.») при
+   1fr 1fr распирало левую колонку по ширине слова, и портрет сжимался в
+   полоску. Колонки не уже своего содержимого — minmax(0, 1fr), а имя
+   мельче, чтобы длинное влезало в половину. */
+.profile-hero-grid { grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:6vw; }
+.profile-title h1 { font-size:clamp(52px,5.6vw,118px); }
+@media (max-width:700px) { .profile-title h1 { font-size:clamp(48px,13vw,100px); } }
