@@ -42,6 +42,13 @@ export default function SisterProfile() {
             <div className="profile-content-main"><p className="profile-lead">Анкета пересобирается.</p></div>
           </section>
         )}
+        {(sister.cvet || sister.strana) && <section className="profile-facts">
+          <div className="facts-heading"><p className="eyebrow">Поля дела</p><h2>Несколько<br /><em>точек.</em></h2></div>
+          <div className="facts-list">
+            {sister.cvet && <div className="fact-row"><span>01</span><span className="fact-label">Любимый цвет</span><strong><i className="color-swatch" style={{ backgroundColor: sister.cvet.hex }} />{sister.cvet.imya}</strong></div>}
+            {sister.strana && <div className="fact-row"><span>{sister.cvet ? "02" : "01"}</span><span className="fact-label">Любимая страна</span><strong>{sister.strana}</strong></div>}
+          </div>
+        </section>}
         <section className="profile-next"><p className="eyebrow">Следующее дело</p><button onClick={() => setLocation(`/sisters/${nextSister.slug}`)}><span>{nextSister.id}</span><b>{nextSister.name}</b><ArrowUpRight size={24} /></button></section>
       </main>
       <footer className="footer"><Link className="brand footer-brand" href="/"><img src="mark.svg" alt="" className="brand-mark" /><span>Сёстры<span className="brand-dot">.</span></span></Link><p>Архив ИИ-персонажей<br />в процессе знакомства.</p><span>© 2026 / 01</span></footer>

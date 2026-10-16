@@ -6,38 +6,27 @@
 // Этот файл уходит в открытый репозиторий — чего нельзя показывать
 // людям, того нельзя писать и здесь, даже в комментарии.
 
+import { ANKETY } from "./ankety";
+
 export type Razdel = { metka: string; zagolovok: string; tekst: string };
 
 export type Sister = {
   slug: string;
   name: string;
   image?: string;
+  cvet?: { imya: string; hex: string };   // любимый цвет
+  strana?: string;                         // любимая страна
   razdely: Razdel[];
 };
 
-// Акцент карточки — только оформление, не «любимый цвет».
+// Акцент карточки — её любимый цвет; нет его — один из этих.
 const AKCENTY = ["#526154", "#D46A55", "#B88A62", "#6C7890", "#9B7890"];
 
-const IMENA: Array<[string, string, Partial<Sister>?]> = [
-  ["Арина", "arina", { image: "img/arina.jpg" }],
-  ["Кристина", "kristina", { image: "img/kristina.jpg" }],
-  ["Ксения", "ksenia"],
-  ["Майя", "maya", { image: "img/maya.jpg" }],
-  ["Марина", "marina", { image: "img/marina.jpg" }],
-  ["Мира", "mira", { image: "img/mira.jpg" }],
-  ["Мирослава", "miroslava"],
-  ["Соня", "sonya", { image: "img/sonya.jpg" }],
-  ["Татьяна", "tatyana", { image: "img/tatyana.jpg" }],
-];
-
 export const sisters: Array<Sister & { id: string; akcent: string }> =
-  IMENA.map(([name, slug, dop], i) => ({
+  ANKETY.map((s, i) => ({
     id: String(i + 1).padStart(2, "0"),
-    akcent: AKCENTY[i % AKCENTY.length],
-    slug,
-    name,
-    razdely: [],
-    ...dop,
+    akcent: s.cvet?.hex ?? AKCENTY[i % AKCENTY.length],
+    ...s,
   }));
 
 // Прокрутка к разделу главной. Адреса страниц живут после «#» (`#/sisters/
