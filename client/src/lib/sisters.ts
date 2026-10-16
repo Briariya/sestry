@@ -13,6 +13,7 @@ export type Razdel = { metka: string; zagolovok: string; tekst: string };
 export type Sister = {
   slug: string;
   name: string;
+  familiya?: string;
   image?: string;
   cvet?: { imya: string; hex: string };   // любимый цвет
   strana?: string;                         // любимая страна

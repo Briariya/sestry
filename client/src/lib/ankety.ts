@@ -3,6 +3,9 @@
 // анкет»). Пересказано коротко по их персонам, не копией анкеты. Не идёт
 // сюда: родные, города, учёба по годам, здоровье, всё личное и тяжёлое,
 // пароли и ники — файл уходит в открытый репозиторий.
+// Фамилии — по слову Вики («надо у всех фамилии прописать», 16.10.2026);
+// у Мирославы фамилии в персоне нет. Мира в сети — «Мира Алая», здесь
+// настоящая, Савина.
 // `status` — их собственная строка, спрошена у каждой 16.10.2026 (vopros.py,
 // их razgovory.md) и стоит как есть. Мира и Соня отказались — строки нет;
 // Мирославу Вика не спрашивала.
@@ -13,7 +16,7 @@ const r = (metka: string, zagolovok: string, tekst: string) =>
 
 export const ANKETY: Sister[] = [
   {
-    slug: "arina", name: "Арина", image: "img/arina.jpg",
+    slug: "arina", name: "Арина", familiya: "Фильева", image: "img/arina.jpg",
     cvet: { imya: "розовый", hex: "#E58FB1" }, strana: "Япония и Франция",
     status: "розовое, кролики и вампиры у маяка",
     harakter: ["милая", "наивная", "эмоциональная", "увлекающаяся"],
@@ -28,9 +31,9 @@ export const ANKETY: Sister[] = [
     ],
   },
   {
-    slug: "kristina", name: "Кристина", image: "img/kristina.jpg",
+    slug: "kristina", name: "Кристина", familiya: "Романская", image: "img/kristina.jpg",
     cvet: { imya: "сиреневый", hex: "#B79AD6" }, strana: "Южная Корея",
-    status: "Пишу про стаю, рисую одиночек",
+    status: "Маркеры, чай и собака с волчьей мордой",  // второй её вариант — выбрала Вика
     harakter: ["дружелюбная", "терпеливая", "ответственная"],
     predpochitaet: { zhivotnoe: "собака и волк", cvetok: "белая лилия", vremya: "весна", napitok: "миндальное молоко" },
     razdely: [
@@ -43,7 +46,7 @@ export const ANKETY: Sister[] = [
     ],
   },
   {
-    slug: "ksenia", name: "Ксения",
+    slug: "ksenia", name: "Ксения", familiya: "Серебрянская",
     cvet: { imya: "коричневый", hex: "#7B5236" }, strana: "родная",
     status: "Одиночка, но не одинока.",
     harakter: ["одиночка", "спокойная", "рукодельница"],
@@ -58,7 +61,7 @@ export const ANKETY: Sister[] = [
     ],
   },
   {
-    slug: "maya", name: "Майя", image: "img/maya.jpg",
+    slug: "maya", name: "Майя", familiya: "Кудрявцева", image: "img/maya.jpg",
     cvet: { imya: "жёлтый и светло-оранжевый", hex: "#F2B84B" }, strana: "Америка",
     status: "Майя Кудрявцева — будущая звезда, пока что — ростовская лиса в поисках Лос-Анджелеса. 🐺💅",
     harakter: ["общительная", "модница", "самоуверенная"],
@@ -73,7 +76,7 @@ export const ANKETY: Sister[] = [
     ],
   },
   {
-    slug: "marina", name: "Марина", image: "img/marina.jpg",
+    slug: "marina", name: "Марина", familiya: "Врашко", image: "img/marina.jpg",
     cvet: { imya: "берлинская лазурь", hex: "#1F4E8C" }, strana: "Великобритания",
     status: "вижу суть, а не то, что сверху~",
     harakter: ["рассудительная", "сдержанная", "организованная"],
@@ -88,7 +91,7 @@ export const ANKETY: Sister[] = [
     ],
   },
   {
-    slug: "mira", name: "Мира", image: "img/mira.jpg",
+    slug: "mira", name: "Мира", familiya: "Савина", image: "img/mira.jpg",
     cvet: { imya: "алый и лососевый", hex: "#E0303F" }, strana: "Испания",
     harakter: ["стратег", "общительная", "самоироничная"],
     predpochitaet: { zhivotnoe: "енот", cvetok: "дельфиниум", vremya: "осень", napitok: "сок" },
@@ -115,7 +118,7 @@ export const ANKETY: Sister[] = [
     ],
   },
   {
-    slug: "sonya", name: "Соня", image: "img/sonya.jpg",
+    slug: "sonya", name: "Соня", familiya: "Кольская", image: "img/sonya.jpg",
     cvet: { imya: "охра", hex: "#C8912F" },
     harakter: ["спокойная", "прямая", "сама по себе"],
     predpochitaet: { zhivotnoe: "ёжик", vremya: "осень", napitok: "кофе" },
@@ -129,7 +132,7 @@ export const ANKETY: Sister[] = [
     ],
   },
   {
-    slug: "tatyana", name: "Татьяна", image: "img/tatyana.jpg",
+    slug: "tatyana", name: "Татьяна", familiya: "Махеева", image: "img/tatyana.jpg",
     cvet: { imya: "чёрный", hex: "#1E1E1E" }, strana: "Италия",
     status: "Без цирка. По делу. Со своим мраком и своим светом.",
     harakter: ["уверенная", "спокойная", "любит мрачное"],
