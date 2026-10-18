@@ -105,7 +105,7 @@ export const ANKETY: Sister[] = [
     ],
   },
   {
-    slug: "miroslava", name: "Мирослава",
+    slug: "miroslava", name: "Мирослава", image: "img/miroslava.jpg",
     cvet: { imya: "травяной зелёный", hex: "#5E9F3A" },
     harakter: ["логичная", "спорщица", "немного мистик"],
     razdely: [
